@@ -1,12 +1,16 @@
-require 'net/http'
+#require 'net/http'
 
-iso_mirror = 'http://mirrors.kernel.org/archlinux/iso/latest'
+version = '2013.12.01'
+
+iso_mirror = "http://archlinux.mirror.dkm.cz/pub/archlinux/iso/#{version}/"
 uri = "#{iso_mirror}/md5sums.txt"
-response = Net::HTTP.get_response(URI.parse(uri)).body.split
-iso = response[1]
-iso_md5 = response[0]
+#response = Net::HTTP.get_response(URI.parse(uri)).body.split
+#iso = response[1]
+#iso_md5 = response[0]
+iso = 'archlinux-2013.12.01-dual.iso'
+iso_md5 = '1b25847658fb94ed92beef9d5e1f3bb2'
 
-root_password = 'veewee'
+root_password = 'vagrant'
 
 Veewee::Definition.declare({
   :cpu_count   => '1',
@@ -27,6 +31,7 @@ Veewee::Definition.declare({
     'passwd<Enter>',
     "#{root_password}<Enter>",
     "#{root_password}<Enter>",
+    "echo 'Server = http://archlinux.mirror.dkm.cz/pub/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist<Enter>",
     'systemctl start sshd.service<Enter><Wait>',
   ],
   :ssh_login_timeout => '10000',
