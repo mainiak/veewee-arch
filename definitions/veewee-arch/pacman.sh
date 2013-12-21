@@ -15,7 +15,7 @@ fi
 # Chroot into the new system and set up Pacman and the mirrorlist
 arch-chroot /mnt <<ENDCHROOT
 # Update the mirrorlist to 5 recently updated mirrors sorted by download rate
-reflector $PACMAN_REFLECTOR_ARGS
+#reflector $PACMAN_REFLECTOR_ARGS
 
 # Upgrade Pacman DB
 pacman-db-upgrade
@@ -24,5 +24,5 @@ pacman-db-upgrade
 pacman -Syy
 
 # Remove reflector as not required anymore
-pacman -Rns --noconfirm reflector
+#pacman -Rns --noconfirm reflector
 ENDCHROOT

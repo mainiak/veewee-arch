@@ -10,7 +10,7 @@ uri = "#{iso_mirror}/md5sums.txt"
 iso = 'archlinux-2013.12.01-dual.iso'
 iso_md5 = '1b25847658fb94ed92beef9d5e1f3bb2'
 
-root_password = 'vagrant'
+root_password = 'veewee'
 
 Veewee::Definition.declare({
   :cpu_count   => '1',

@@ -16,5 +16,7 @@ fi
 #OPT="-n" # NO GUI
 veewee vbox build $OPT $T
 veewee vbox export $T
+BOX_FILE="./$T.box"
+[ ! -f $BOX_FILE ] && exit 1
 veewee vbox destroy $T
-vagrant box add $B ./$T.box
+vagrant box add $B $BOX_FILE
