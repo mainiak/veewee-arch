@@ -13,7 +13,7 @@ set -ex
 if [ ! -d definitions/$T ]; then
   veewee vbox define $T archlinux-x86_64
 fi
-#OPT="-n" # NO GUI
+OPT="-n" # NO GUI
 veewee vbox build $OPT $T
 veewee vbox export $T
 BOX_FILE="./$T.box"
