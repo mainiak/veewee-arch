@@ -5,6 +5,7 @@
 # - https://github.com/jedi4ever/veewee/tree/master/templates/archlinux-x86_64
 #
 # gem install veewee
+# veewee vbox templates | cut -f5 -d' ' | fgrep -i arch
 #
 N="arch"
 T="veewee-$N"
